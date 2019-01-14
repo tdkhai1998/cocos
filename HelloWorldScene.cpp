@@ -110,11 +110,11 @@ bool HelloWorld::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener_contact, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener_mouse, this);
 
-	this->schedule(schedule_selector(HelloWorld::random_Enemies), 0.5);
+//	this->schedule(schedule_selector(HelloWorld::random_Enemies), 0.5);
 	this->schedule(schedule_selector(HelloWorld::m_a), 0.1);
 	this->schedule(schedule_selector(HelloWorld::setBackGround), 1200 / 200);
 
-
+	this->schedule(schedule_selector(HelloWorld::LoadMap), 0.5);
 	return true;
 }
 
@@ -174,11 +174,30 @@ void HelloWorld::onMouseMove(cocos2d::Event * event)
 	auto Pos2 = e->getLocationInView();
 	mc2->getPhysicsBody()->setVelocity((Pos2 - Pos)/0.05);
 }
-int i = 0;
-int k = 0;
-void HelloWorld::random_Enemies(float dt)
+void HelloWorld::LoadMap(float)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+	if (this->type_map==1) {
+		timeofmap += 1;
+		Block a(shapeCache);
+		Block b(shapeCache);
+		a.getSprite()->setPosition(visibleSize.width / 2 + timeofmap * 50, 1000);
+		b.getSprite()->setPosition(visibleSize.width / 2 - timeofmap * 50, 1000);
+		addChild(a.getSprite());
+		addChild(b.getSprite());
+		if (timeofmap == 10) {
+			timeofmap = 0;
+			type_map = 1;
+		}
+	}
+	else {
+
+	}
+
+}
+void HelloWorld::random_Enemies(float dt)
+{
+	/*Size visibleSize = Director::getInstance()->getVisibleSize();
 	Block a(shapeCache);
 	Block b(shapeCache);
 	cocos2d::experimental::AudioEngine::play2d("sound.mp3");
@@ -196,7 +215,7 @@ void HelloWorld::random_Enemies(float dt)
 	else {
 		i--;
 		if (i == 0) k = 0;
-	}
+	}*/
 }
 
 void HelloWorld::spawnSprite(const std::string &name, Vec2 pos)
