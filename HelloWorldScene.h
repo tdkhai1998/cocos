@@ -72,6 +72,11 @@ public:
 
 private:
 	bool over = true;
+	int type_map =1 ;
+	int timeofmap = 0;
+
+
+	void LoadMap(float);
 	void random_Enemies(float dt);
 	void spawnSprite(const std::string &name, Vec2 pos);
 	void move(float dt);
