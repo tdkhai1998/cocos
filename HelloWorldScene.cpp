@@ -188,11 +188,21 @@ void HelloWorld::LoadMap(float)
 		addChild(b.getSprite());
 		if (timeofmap == 10) {
 			timeofmap = 0;
-			type_map = 1;
+			type_map = 0;
 		}
 	}
 	else {
-
+		timeofmap += 1;
+		Block a(shapeCache, "orange");
+		Block b(shapeCache, "orange");
+		a.getSprite()->setPosition(visibleSize.width / 2 + timeofmap * 50, 1000);
+		b.getSprite()->setPosition(visibleSize.width / 2 - timeofmap * 50, 1000);
+		addChild(a.getSprite());
+		addChild(b.getSprite());
+		if (timeofmap == 10) {
+			timeofmap = 0;
+			type_map = 1;
+		}
 	}
 
 }
