@@ -2,10 +2,19 @@
 
 
 
-Boom::Boom(PhysicsShapeCache* shapeCache,string name)
+
+
+void Boom::init(PhysicsShapeCache * shapeCache, string name)
 {
+
+
 	setPhysics(shapeCache, name);
 	obj->getPhysicsBody()->setCollisionBitmask(4);
+
+}
+Boom::Boom(PhysicsShapeCache* shapeCache,string name)
+{
+	init(shapeCache, name);
 }
 
 
