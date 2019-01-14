@@ -110,7 +110,6 @@ bool HelloWorld::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener_contact, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener_mouse, this);
 
-	this->schedule(schedule_selector(HelloWorld::random_Enemies), 0.2);
 	this->schedule(schedule_selector(HelloWorld::m_a), 0.1);
 	this->schedule(schedule_selector(HelloWorld::setBackGround), 1200 / 200);
 
@@ -179,8 +178,8 @@ int k = 0;
 void HelloWorld::random_Enemies(float dt)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Block a(shapeCache);
-	Block b(shapeCache);
+	Block a(shapeCache,"watermelon");
+	Block b(shapeCache,"watermelon");
 	cocos2d::experimental::AudioEngine::play2d("sound.mp3");
 
 	
