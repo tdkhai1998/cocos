@@ -110,7 +110,7 @@ bool HelloWorld::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener_contact, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener_mouse, this);
 
-	this->schedule(schedule_selector(HelloWorld::random_Enemies), 0.5);
+	this->schedule(schedule_selector(HelloWorld::random_Enemies), 0.2);
 	this->schedule(schedule_selector(HelloWorld::m_a), 0.1);
 	this->schedule(schedule_selector(HelloWorld::setBackGround), 1200 / 200);
 

@@ -4,11 +4,10 @@ class Block :
 	public Shape
 {
 protected:
-	virtual void selectedImage(PhysicsShapeCache* shapeCache);
-	
+	virtual void init(PhysicsShapeCache* shapeCache,string name);
+
 public:
-	virtual void init(PhysicsShapeCache* shapeCache);
-	Block(PhysicsShapeCache* shapeCache);
+	Block(PhysicsShapeCache* shapeCache,string name);
 	~Block();
 };
 

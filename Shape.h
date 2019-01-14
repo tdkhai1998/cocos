@@ -7,11 +7,8 @@ class Shape:public Sprite
 {
 protected:
 	Sprite* obj;
-	void createPos();
-	void setVecology(Vec2 pos);
-	virtual void selectedImage(PhysicsShapeCache* shapeCache) = 0;
-	virtual void init(PhysicsShapeCache* shapeCache) = 0;
-	void setScale();
+	void setPhysics(PhysicsShapeCache* shapeCache,string name);
+	virtual void init(PhysicsShapeCache* shapeCache,string name) = 0;
 public:
 	Sprite* getSprite();
 	Shape();
