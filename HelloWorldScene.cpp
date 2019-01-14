@@ -180,8 +180,8 @@ void HelloWorld::LoadMap(float)
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	if (this->type_map==1) {
 		timeofmap += 1;
-		Block a(shapeCache);
-		Block b(shapeCache);
+		Block a(shapeCache, "watermelon");
+		Block b(shapeCache, "watermelon");
 		a.getSprite()->setPosition(visibleSize.width / 2 + timeofmap * 50, 1000);
 		b.getSprite()->setPosition(visibleSize.width / 2 - timeofmap * 50, 1000);
 		addChild(a.getSprite());
