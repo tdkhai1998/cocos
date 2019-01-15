@@ -1,6 +1,6 @@
 #pragma once
 #include "Shape.h"
-class rotate :
+class Rotate :
 	public Shape
 {
 protected:
@@ -8,7 +8,7 @@ protected:
 
 public:
 
-	rotate(PhysicsShapeCache* shapeCache,string name);
-	~rotate();
+	Rotate(PhysicsShapeCache* shapeCache,string name);
+	~Rotate();
 };
 

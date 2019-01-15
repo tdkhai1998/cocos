@@ -5,6 +5,8 @@
 
 USING_NS_CC;
 
+
+
 Scene* HelloWorld::createScene()
 {
 	// create the scene with physics enabled
@@ -115,9 +117,13 @@ bool HelloWorld::init()
 	this->schedule(schedule_selector(HelloWorld::m_a), 0.1);
 	this->schedule(schedule_selector(HelloWorld::setBackGround), 1200 / 200);
 
-	this->schedule(schedule_selector(HelloWorld::LoadMap), 0.5);
+	this->schedule(schedule_selector(HelloWorld::LoadMap), 3);
 	return true;
 }
+
+
+
+
 
 void HelloWorld::m_a(float dt) {
 	
@@ -135,6 +141,7 @@ bool HelloWorld::onContactBegin(PhysicsContact& contact) {
 			cocos2d::experimental::AudioEngine::stopAll();
 			int id = cocos2d::experimental::AudioEngine::play2d("gameover.mp3");
 			cocos2d::experimental::AudioEngine::setVolume(id, 0.5);
+			
 		}
 		auto gameover = Sprite::create("gameover.png");
 		gameover->setScale(0.5);
@@ -175,34 +182,32 @@ void HelloWorld::onMouseMove(cocos2d::Event * event)
 	auto Pos2 = e->getLocationInView();
 	mc2->getPhysicsBody()->setVelocity((Pos2 - Pos)/0.05);
 }
+
+void HelloWorld::getScore(float dt)
+{
+	score += 1;
+}
+
+#define WIDTH 1200
 void HelloWorld::LoadMap(float)
 {
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	if (this->type_map==1) {
-		timeofmap += 1;
-		Block a(shapeCache, "watermelon");
-		Block b(shapeCache, "watermelon");
-		a.getSprite()->setPosition(visibleSize.width / 2 + timeofmap * 50, 1000);
-		b.getSprite()->setPosition(visibleSize.width / 2 - timeofmap * 50, 1000);
-		addChild(a.getSprite());
-		addChild(b.getSprite());
-		if (timeofmap == 10) {
-			timeofmap = 0;
-			type_map = 0;
-		}
-	}
-	else {
-		timeofmap += 1;
-		Block a(shapeCache, "orange");
-		Block b(shapeCache, "orange");
-		a.getSprite()->setPosition(visibleSize.width / 2 + timeofmap * 50, 1000);
-		b.getSprite()->setPosition(visibleSize.width / 2 - timeofmap * 50, 1000);
-		addChild(a.getSprite());
-		addChild(b.getSprite());
-		if (timeofmap == 10) {
-			timeofmap = 0;
-			type_map = 1;
-		}
+	/*for (int i = 0; i < arr.size(); i++)
+	{
+		removeChild(arr.at(i));
+		delete arr.at(i);
+	}*/
+	//arr.clear();
+	int width = WIDTH;
+	for (int i = 0; i < 5; i++)
+	{
+		 
+		Block ban1(shapeCache, "watermelon");
+		Block ban2(shapeCache, "watermelon");
+		ban1.getSprite()->setPosition(Vect(350, width));
+		ban2.getSprite()->setPosition(Vect(400, width));
+		addChild(ban1.getSprite());
+		addChild(ban2.getSprite());
+		width += 50;
 	}
 
 }
