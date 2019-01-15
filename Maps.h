@@ -7,6 +7,9 @@ public:
 		instance = new Maps();
 		return instance;
 	}
+
+
+
 	~Maps() { delete instance; }
 private:
 	Maps() {}
