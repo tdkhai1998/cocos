@@ -54,12 +54,14 @@ private:
 #include "ui/UIButton.h"
 #include "ui/UIWidget.h"
 #include <string>
+#include "Rotate.h"
+#include"Maps.h"
 
 class HelloWorld : public cocos2d::Layer
 {
 public:
 	static cocos2d::Scene* createScene();
-
+	Vector<Sprite*> arr;
 	virtual bool init();
 
 	// a selector callback
@@ -74,8 +76,9 @@ private:
 	bool over = true;
 	int type_map =1 ;
 	int timeofmap = 0;
+	int score = 0;
 
-
+	void getScore(float dt);
 	void LoadMap(float);
 	void random_Enemies(float dt);
 	void spawnSprite(const std::string &name, Vec2 pos);

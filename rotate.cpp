@@ -1,7 +1,7 @@
-#include "rotate.h"
+#include "Rotate.h"
 
 
-void rotate::init(PhysicsShapeCache* shapeCache, string name)
+void Rotate::init(PhysicsShapeCache* shapeCache, string name)
 {
 	setPhysics(shapeCache, name);
 	auto rot = RotateBy::create(0.1, 15);
@@ -10,7 +10,7 @@ void rotate::init(PhysicsShapeCache* shapeCache, string name)
 	obj->getPhysicsBody()->setCollisionBitmask(3);
 }
 
-rotate::rotate(PhysicsShapeCache* shapeCache,string name)
+Rotate::Rotate(PhysicsShapeCache* shapeCache,string name)
 {
 	
 	init(shapeCache, name);
@@ -18,6 +18,6 @@ rotate::rotate(PhysicsShapeCache* shapeCache,string name)
 }
 
 
-rotate::~rotate()
+Rotate::~Rotate()
 {
 }
